@@ -1,0 +1,17 @@
+services:
+  database:
+    image: postgres:latest
+    restart: on-failure:3
+    shm_size: 128mb
+    environment:
+      POSTGRES_USER: osrs_ca_calc_admin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: osrs_ca_calc
+    ports:
+      - "5432:5432"
+
+  adminer:
+    image: adminer
+    restart: on-failure:3
+    ports:
+      - "8081:8080"
